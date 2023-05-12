@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Usuario {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -20,7 +19,6 @@ public class Usuario {
 	private String email;
 	@Column
 	private String senha;
-	
 	
 	public int getId() {
 		return id;

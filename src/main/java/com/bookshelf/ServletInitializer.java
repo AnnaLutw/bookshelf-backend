@@ -20,15 +20,12 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(BookshelfApplication.class);
 	}
-
 	@Component
 	public class CORSFilter implements Filter {
-
 	    @Override
 	    public void init(FilterConfig filterConfig) throws ServletException {
 
 	    }
-
 	    @Override
 	    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 	        HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -39,7 +36,6 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	        response.setHeader("Access-Control-Expose-Headers", "Location");
 	        filterChain.doFilter(servletRequest, servletResponse);
 	    }
-
 	    @Override
 	    public void destroy() {
 
