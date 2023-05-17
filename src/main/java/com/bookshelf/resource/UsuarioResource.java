@@ -1,5 +1,6 @@
 package com.bookshelf.resource;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,7 +14,7 @@ import com.bookshelf.service.UsuarioService;
 
 import com.bookshelf.domain.Usuario;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController()
 @RequestMapping(value="/api/usuarios", produces= MediaType.APPLICATION_JSON_VALUE)
 public class UsuarioResource {
@@ -31,4 +32,12 @@ public class UsuarioResource {
 	public Usuario save(@RequestBody Usuario usuario) {
 		return service.save(usuario);
 	}
+
+	@PostMapping("/login")
+	public Usuario login(String email, String senha) {
+		System.out.println("Logada");
+		return service.login(email, senha);
+	}
+
+
 }

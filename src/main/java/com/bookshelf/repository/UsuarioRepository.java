@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.bookshelf.domain.Usuario;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-	Usuario findByUsuarioAndSenha(String usuario, String senha);
-	Usuario findByUsuario(String string);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+
+	Usuario findByEmailAndSenha(String email, String senha);
 }

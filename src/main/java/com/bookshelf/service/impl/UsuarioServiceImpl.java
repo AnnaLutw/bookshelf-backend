@@ -1,11 +1,9 @@
 package com.bookshelf.service.impl;
 
-import java.util.Base64;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.bookshelf.domain.Usuario;
-import com.bookshelf.dto.UsuarioDto;
 import com.bookshelf.repository.UsuarioRepository;
 import com.bookshelf.service.UsuarioService;
 
@@ -22,22 +20,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return repository.save(usuario);
 	}
 	@Override
-	public UsuarioDto login(String usuario, String senha) {
-		
-		Usuario usuarioDois = repository.findByUsuarioAndSenha(usuario, senha);
-		if(usuarioDois == null) {
-			return null;
-		}
-		else {
-			String originalInput = usuarioDois.getUsuario() + ":"+ usuarioDois.getSenha();
-			UsuarioDto usuarioDto = new UsuarioDto(usuarioDois);
-			usuarioDto.setToken(Base64.getEncoder().encodeToString(originalInput.getBytes()));
-			return usuarioDto;
-		}
+	public Usuario login(String email, String senha) {
+
+		Usuario usuarioDois = repository.findByEmailAndSenha(email, senha);
+		return usuarioDois;
 	}
-	@Override
-	public Usuario findByUsuario(String string) {
-		return repository.findByUsuario(string);
-	}
+
 	
 }
