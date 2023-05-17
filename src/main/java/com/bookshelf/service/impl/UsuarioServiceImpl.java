@@ -21,9 +21,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	@Override
 	public Usuario login(String email, String senha) {
-
-		Usuario usuarioDois = repository.findByEmailAndSenha(email, senha);
-		return usuarioDois;
+		return repository.findByEmailAndSenha(email, senha);
 	}
 
 	
