@@ -4,6 +4,8 @@ package com.bookshelf.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,5 +20,6 @@ public class Usuario {
 	private String usuario;
 	private String email;
 	private String senha;
+
 	
 }
